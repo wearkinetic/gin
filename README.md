@@ -275,10 +275,7 @@ func main() {
 		// single file
 		file, _ := c.FormFile("file")
 		log.Println(file.Filename)
-        
-        // Upload the file to specific dst.
-        // c.SaveUploadedFile(file, dst)       
-		
+
 		c.String(http.StatusOK, fmt.Sprintf("'%s' uploaded!", file.Filename))
 	})
 	router.Run(":8080")
@@ -307,9 +304,6 @@ func main() {
 
 		for _, file := range files {
 			log.Println(file.Filename)
-			
-			// Upload the file to specific dst.
-            // c.SaveUploadedFile(file, dst)       
 		}
 		c.String(http.StatusOK, fmt.Sprintf("%d files uploaded!", len(files)))
 	})
