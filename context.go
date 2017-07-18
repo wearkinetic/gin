@@ -358,7 +358,8 @@ func (c *Context) QueryArray(key string) []string {
 // GetQueryArray returns a slice of strings for a given query key, plus
 // a boolean value whether at least one value exists for the given key.
 func (c *Context) GetQueryArray(key string) ([]string, bool) {
-	if values, ok := c.Request.URL.Query()[key]; ok && len(values) > 0 {
+	req := c.Request
+	if values, ok := req.URL.Query()[key]; ok && len(values) > 0 {
 		return values, true
 	}
 	return []string{}, false
