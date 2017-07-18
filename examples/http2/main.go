@@ -3,7 +3,7 @@ package main
 import (
 	"html/template"
 
-	"github.com/gin-gonic/gin"
+	"github.com/wearkinetic/gin"
 )
 
 var html = template.Must(template.New("https").Parse(`

@@ -2,11 +2,11 @@
 
 <img align="right" width="159px" src="https://raw.githubusercontent.com/gin-gonic/logo/master/color.png">
 
-[![Build Status](https://travis-ci.org/gin-gonic/gin.svg)](https://travis-ci.org/gin-gonic/gin)
- [![codecov](https://codecov.io/gh/gin-gonic/gin/branch/master/graph/badge.svg)](https://codecov.io/gh/gin-gonic/gin)
- [![Go Report Card](https://goreportcard.com/badge/github.com/gin-gonic/gin)](https://goreportcard.com/report/github.com/gin-gonic/gin)
- [![GoDoc](https://godoc.org/github.com/gin-gonic/gin?status.svg)](https://godoc.org/github.com/gin-gonic/gin)
- [![Join the chat at https://gitter.im/gin-gonic/gin](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gin-gonic/gin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/wearkinetic/gin.svg)](https://travis-ci.org/wearkinetic/gin)
+ [![codecov](https://codecov.io/gh/wearkinetic/gin/branch/master/graph/badge.svg)](https://codecov.io/gh/wearkinetic/gin)
+ [![Go Report Card](https://goreportcard.com/badge/github.com/wearkinetic/gin)](https://goreportcard.com/report/github.com/wearkinetic/gin)
+ [![GoDoc](https://godoc.org/github.com/wearkinetic/gin?status.svg)](https://godoc.org/github.com/wearkinetic/gin)
+ [![Join the chat at https://gitter.im/wearkinetic/gin](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wearkinetic/gin?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Gin is a web framework written in Go (Golang). It features a martini-like API with much better performance, up to 40 times faster thanks to [httprouter](https://github.com/julienschmidt/httprouter). If you need performance and good productivity, you will love Gin.
 
@@ -20,7 +20,7 @@ $ cat example.go
 ```go
 package main
 
-import "github.com/gin-gonic/gin"
+import "github.com/wearkinetic/gin"
 
 func main() {
 	r := gin.Default()
@@ -94,13 +94,13 @@ BenchmarkZeus_GithubAll 		| 2000 		| 944234 	| 300688 	| 2648
 1. Download and install it:
 
 ```sh
-$ go get github.com/gin-gonic/gin
+$ go get github.com/wearkinetic/gin
 ```
 
 2. Import it in your code:
 
 ```go
-import "github.com/gin-gonic/gin"
+import "github.com/wearkinetic/gin"
 ```
 
 3. (Optional) Import `net/http`. This is required for example if using constants such as `http.StatusOK`.
@@ -126,13 +126,13 @@ $ mkdir -p ~/go/src/github.com/myusername/project && cd "$_"
 
 ```sh
 $ govendor init
-$ govendor fetch github.com/gin-gonic/gin@v1.2
+$ govendor fetch github.com/wearkinetic/gin@v1.2
 ```
 
 4. Copy a starting template inside your project
 
 ```sh
-$ curl https://raw.githubusercontent.com/gin-gonic/gin/master/examples/basic/main.go > main.go
+$ curl https://raw.githubusercontent.com/wearkinetic/gin/master/examples/basic/main.go > main.go
 ```
 
 5. Run your project
@@ -266,7 +266,7 @@ id: 1234; page: 1; name: manu; message: this_is_great
 
 #### Single file
 
-References issue [#774](https://github.com/gin-gonic/gin/issues/774) and detail [example code](examples/upload-file/single).
+References issue [#774](https://github.com/wearkinetic/gin/issues/774) and detail [example code](examples/upload-file/single).
 
 ```go
 func main() {
@@ -448,13 +448,13 @@ func main() {
 
 ### Bind Query String
 
-See the [detail information](https://github.com/gin-gonic/gin/issues/742#issuecomment-264681292).
+See the [detail information](https://github.com/wearkinetic/gin/issues/742#issuecomment-264681292).
 
 ```go
 package main
 
 import "log"
-import "github.com/gin-gonic/gin"
+import "github.com/wearkinetic/gin"
 
 type Person struct {
 	Name    string `form:"name"`
@@ -471,7 +471,7 @@ func startPage(c *gin.Context) {
 	var person Person
 	// If `GET`, only `Form` binding engine (`query`) used.
 	// If `POST`, first checks the `content-type` for `JSON` or `XML`, then uses `Form` (`form-data`).
-	// See more at https://github.com/gin-gonic/gin/blob/master/binding/binding.go#L48
+	// See more at https://github.com/wearkinetic/gin/blob/master/binding/binding.go#L48
 	if c.Bind(&person) == nil {
 		log.Println(person.Name)
 		log.Println(person.Address)
@@ -483,7 +483,7 @@ func startPage(c *gin.Context) {
 
 ### Bind HTML checkboxes
 
-See the [detail information](https://github.com/gin-gonic/gin/issues/129#issuecomment-124260092)
+See the [detail information](https://github.com/wearkinetic/gin/issues/129#issuecomment-124260092)
 
 main.go
 
@@ -533,7 +533,7 @@ result:
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/wearkinetic/gin"
 )
 
 type LoginForm struct {
@@ -946,7 +946,7 @@ import (
 	"log"
 
 	"github.com/gin-gonic/autotls"
-	"github.com/gin-gonic/gin"
+	"github.com/wearkinetic/gin"
 )
 
 func main() {
@@ -971,7 +971,7 @@ import (
 	"log"
 
 	"github.com/gin-gonic/autotls"
-	"github.com/gin-gonic/gin"
+	"github.com/wearkinetic/gin"
 	"golang.org/x/crypto/acme/autocert"
 )
 
@@ -998,7 +998,7 @@ func main() {
 Do you want to graceful restart or stop your web server?
 There are some ways this can be done.
 
-We can use [fvbock/endless](https://github.com/fvbock/endless) to replace the default `ListenAndServe`. Refer issue [#296](https://github.com/gin-gonic/gin/issues/296) for more details.
+We can use [fvbock/endless](https://github.com/fvbock/endless) to replace the default `ListenAndServe`. Refer issue [#296](https://github.com/wearkinetic/gin/issues/296) for more details.
 
 ```go
 router := gin.Default()
@@ -1029,7 +1029,7 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/gin-gonic/gin"
+	"github.com/wearkinetic/gin"
 )
 
 func main() {
@@ -1067,9 +1067,9 @@ func main() {
 }
 ```
 
-## Users  [![Sourcegraph](https://sourcegraph.com/github.com/gin-gonic/gin/-/badge.svg)](https://sourcegraph.com/github.com/gin-gonic/gin?badge)
+## Users  [![Sourcegraph](https://sourcegraph.com/github.com/wearkinetic/gin/-/badge.svg)](https://sourcegraph.com/github.com/wearkinetic/gin?badge)
 
-Awesome project lists using [Gin](https://github.com/gin-gonic/gin) web framework.
+Awesome project lists using [Gin](https://github.com/wearkinetic/gin) web framework.
 
 * [drone](https://github.com/drone/drone): Drone is a Continuous Delivery platform built on Docker, written in Go
 * [gorush](https://github.com/appleboy/gorush): A push notification server written in Go.
