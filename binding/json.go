@@ -7,10 +7,11 @@ package binding
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin/json"
+	"github.com/json-iterator/go"
 )
 
 var (
+	json                   = jsoniter.ConfigCompatibleWithStandardLibrary
 	EnableDecoderUseNumber = false
 )
 
